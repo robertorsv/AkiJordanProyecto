@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akinator - Bulls 1995-96</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="ajs" ng-controller="ExCtrl">
+
+    <div id="keepo">
+        <div ng-show="menu">
+            <img src="imagenes/bulls 95-96/bulls.png" alt="foto bulls" width="250" height="200" class="center-img">
+            <h1>¡Bienvenido al Akinator de los Bulls 1995-96!</h1>
+            <h3>Haz clic en "Jugar" para empezar.</h3>
+            <div id="controls">
+                <input type="button" id="playButton" value="Jugar" ng-click="play()">
+            </div>
+        </div>
+
+        <div ng-show="questionMode">
+            <img src="imagenes/bulls 95-96/akijordan2.webp" alt="foto akijordan" width="300" height="300"
+                class="center-img">
+            <h1>Pregunta {{ num }}</h1>
+            <div id="question">
+                {{ question.texte }}<br>
+            </div>
+            <div id="controls">
+                <input type="button" id="yesButton" value="Sí" ng-click="yes()">
+                <input type="button" id="noButton" value="No" ng-click="no()">
+                <input type="button" id="maybeButton" value="No sé" ng-click="maybe()">
+            </div>
+        </div>
+
+        <div ng-show="resultMode" class="ng-hide">
+            <img src="imagenes/bulls 95-96/akijordan3.webp" alt="foto akijordan3" width="250" height="200"
+                class="center-img">
+            <h1>Estoy pensando en:</h1>
+            <div id="personName">{{ person.nom }}</div>
+            <img class="img" id="imageFinal" ng-src="{{ person.url }}"><br>
+            <div id="personDesc">{{ person.desc }}</div>
+            <h1>¿Quieres jugar otra vez?</h1>
+            <div id="controls">
+                <input type="button" id="repeatButton" value="Rejugar" ng-click="replay()">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
